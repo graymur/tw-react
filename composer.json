@@ -1,0 +1,9 @@
+{
+    "require": {
+        "silex/silex": "*",
+        "doctrine/mongodb-odm": "*"
+    },
+    "autoload": {
+        "psr-0": {"Messaging": "src/"}
+    }
+}

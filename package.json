@@ -1,0 +1,31 @@
+{
+  "name": "tw-react",
+  "version": "0.1.0",
+  "author": "Sergey Repkov",
+  "private": true,
+  "devDependencies": {
+    "babel": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-babel": "*",
+    "gulp-compass": "*",
+    "gulp-concat": "*",
+    "gulp-csso": "*",
+    "gulp-jshint": "*",
+    "gulp-rename": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-util": "*",
+    "gulp-notify": "*",
+    "gulp-watch": "*",
+    "reactify": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "react": "^0.13.3"
+  }
+}

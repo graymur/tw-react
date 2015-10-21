@@ -1,0 +1,6 @@
+/bower_components
+/.idea
+/.sass-cache
+/vendor
+/node_modules
+/composer.lock

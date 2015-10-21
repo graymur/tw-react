@@ -1,0 +1,6 @@
+{
+    "name": "TW-react",
+    "dependencies": {
+        "bootstrap-sass": "*"
+    }
+}
