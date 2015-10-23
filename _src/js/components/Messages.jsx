@@ -14,7 +14,7 @@ export default class Messages extends React.Component {
             <div className="clearfix">
                 {
                     this.props.messages.map(message => {
-                        return <Message key={message.id} data={message} />;
+                        return <Message key={message.id} {...message} />;
                     })
                 }
             </div>

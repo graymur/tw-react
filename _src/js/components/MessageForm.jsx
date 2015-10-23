@@ -31,9 +31,10 @@ export default class MessageForm extends React.Component {
                 this.props.onAdd(message);
             }
 
-            let form = React.findDOMNode(this.refs.form);
-            form.reset();
+            //let form = React.findDOMNode(this.refs.form);
+            //form.reset();
 
+            this.refs.form.getDOMNode().reset();
             this.setState({ text: '' });
         });
     }
