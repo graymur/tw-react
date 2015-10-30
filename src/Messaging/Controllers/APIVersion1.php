@@ -64,6 +64,20 @@ class APIVersion1 implements ControllerProviderInterface
             ->assert('model', '^([a-z]+)$')
         ;
 
+//        $model = $this->checkModel('message');
+//
+//        foreach (range(900, 1000) as $id)
+//        {
+//            $message = new $model;
+//
+//            $message->text = $id;
+//            $message->date = time();
+//
+//            $this->dm->persist($message);
+//        }
+//
+//        $this->dm->flush();
+
         return $api;
     }
 
@@ -73,7 +87,27 @@ class APIVersion1 implements ControllerProviderInterface
 
         $list = $this->dm->getRepository($model)->findBy(array(), array('date' => -1));
 
-        return $app->json($list, 201);
+//        $limit = 0;
+//
+//        foreach ($list as $item)
+//        {
+//            $limit++;
+//
+//            dv($item);
+//
+//            $this->dm->remove($item);
+//            $this->dm->flush();
+//
+//            if ($limit > 800) break;
+//        }
+//
+//        $this->dm->flush();
+//
+//        $list = $this->dm->getRepository($model)->findBy(array(), array('date' => -1));
+//
+//        dv($list);
+
+        return $app->json($list, 200);
     }
 
     public function itemAction(Application $app, $model, $id)
@@ -85,7 +119,7 @@ class APIVersion1 implements ControllerProviderInterface
             throw new \Exception;
         }
 
-        return $app->json($item, 201);
+        return $app->json($item, 200);
     }
 
     public function deleteAction(Application $app, $model, $id)
@@ -100,7 +134,7 @@ class APIVersion1 implements ControllerProviderInterface
         $this->dm->remove($item);
         $this->dm->flush();
 
-        return $app->json(array('id' => $item->id), 201);
+        return $app->json(array('id' => $item->id), 204);
     }
 
     public function updateAction(Application $app, $model, $id)

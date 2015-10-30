@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './components/List.jsx';
+import List from './messages/components/List.jsx';
 
 function start() {
     let body = document.querySelector('BODY');

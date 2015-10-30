@@ -14,19 +14,32 @@ var csso = require('gulp-csso');
 var autoprefixer = require('gulp-autoprefixer');
 var notify = require('gulp-notify');
 
+var jsTimeout;
+
 gulp.task('js', function() {
-    browserify('_src/js/app.js', { debug: true })
-        .add(require.resolve('babel/polyfill'))
-        .transform(babelify)
-        .transform(reactify)
-        .bundle()
-        .on('error', util.log.bind(util, 'Browserify Error'))
-        .pipe(source('_src/js/app.js'))
-        .pipe(buffer())
-        //.pipe(uglify())
-        .pipe(rename({dirname: ''}))
-        .pipe(gulp.dest('./public/js'))
-        .pipe(notify("JS done"));
+    var start;
+    clearTimeout(jsTimeout);
+
+    var notifier = notify.withReporter(function (options, callback) {
+        console.log('js done in ' + Math.round((Date.now() - start) / 1000) + 's');
+    });
+
+    setTimeout(function () {
+        start = Date.now();
+
+        browserify('_src/js/app.js', { debug: true })
+            .add(require.resolve('babel/polyfill'))
+            .transform(babelify)
+            .transform(reactify)
+            .bundle()
+            .on('error', util.log.bind(util, 'Browserify Error'))
+            .pipe(source('_src/js/app.js'))
+            .pipe(buffer())
+            //.pipe(uglify())
+            .pipe(rename({dirname: ''}))
+            .pipe(gulp.dest('./public/js'))
+            .pipe(notifier());
+    }, 500);
 });
 
 gulp.task('css', function() {
