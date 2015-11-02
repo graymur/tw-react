@@ -4,7 +4,10 @@ import dv from '../../util/dv.js';
 
 class MessagesActions {
     createMessage(message) {
-        this.dispatch(message);
+        MessagesSource.create(message).then((data) => {
+            //dv(data);
+            this.dispatch(data);
+        });
     }
 
     removeMessage(id) {

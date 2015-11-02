@@ -11,10 +11,15 @@ class MessagesStore {
             update: MessagesActions.UPDATE_MESSAGES,
             fetch: MessagesActions.FETCH_MESSAGES,
             fetchFailed: MessagesActions.MESSAGES_FAILED,
-            remove: MessagesActions.REMOVE_MESSAGE
+            remove: MessagesActions.REMOVE_MESSAGE,
+            create: MessagesActions.CREATE_MESSAGE
             //handleCreate: MessagesActions.CREATE,
             //handleUpdate: MessagesActions.UPDATE_MESSAGES
         });
+    }
+
+    create(message) {
+        this.messages.unshift(message);
     }
 
     update(messages) {

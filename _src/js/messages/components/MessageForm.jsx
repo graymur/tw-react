@@ -26,7 +26,7 @@ export default class MessageForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        MessagesActions.create({ text: this.state.text });
+        MessagesActions.createMessage({ text: this.state.text });
 
         this.refs.form.getDOMNode().reset();
         this.setState({ text: '' });

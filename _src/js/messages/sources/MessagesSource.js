@@ -13,6 +13,10 @@ class MessagesSource {
             type: 'DELETE'
         });
     }
+
+    create(message) {
+        return $.post('/api/1.0/message', message);
+    }
 }
 
 export default new MessagesSource();
